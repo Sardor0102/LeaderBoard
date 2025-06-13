@@ -1,6 +1,4 @@
-from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import AbstractUser
-from django.db import models
+
 from django.db.models import Model, ForeignKey, CASCADE
 from django.db.models.fields import CharField, TextField, DateTimeField
 
@@ -19,7 +17,7 @@ class Course(Model):
 
 class Group(Model):
     name = CharField(max_length=255)
-    course_id = ForeignKey('apps.Course', on_delete=models.CASCADE, related_name='groups')
+    course_id = ForeignKey('apps.Course', CASCADE, related_name='groups')
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
 
@@ -27,7 +25,7 @@ class Group(Model):
         return f"{self.name} - {self.course_id.name}"
 
 
-class Badge(models.Model):
+class Badge(Model):
     name = CharField(max_length=255)
     icon = CharField(max_length=255)
     description = TextField(blank=True, null=True)
