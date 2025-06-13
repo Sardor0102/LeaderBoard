@@ -19,7 +19,7 @@ class Course(Model):
 
 class Group(Model):
     name = CharField(max_length=255)
-    course_id = ForeignKey(Course, on_delete=models.CASCADE, related_name='groups')
+    course_id = ForeignKey('apps.Course', on_delete=models.CASCADE, related_name='groups')
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
 
