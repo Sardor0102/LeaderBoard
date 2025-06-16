@@ -3,3 +3,4 @@
 apps/migrations/*
 db.sqlite3
 makefile
+Makefile
